@@ -18,6 +18,28 @@ proceso_corriendo() {
 	ps -p $id_proceso > /dev/null	
 }
 
+graficar_cpu() {
+	gnuplot -persist <<-EOF
+    		set terminal qt
+    		set xdata time
+    		set timefmt '%H:%M:%S
+    		set format x '%H:%M:%S'
+    		plot 'log_cpu.txt' using 1:2 with lines title 'CPU'
+	EOF
+}
+
+graficar_mem() {
+	gnuplot -persist <<-EOF
+    		set terminal qt
+    		set xdata time
+    		set timefmt '%H:%M:%S
+    		set format x '%H:%M:%S'
+    		plot 'log_mem.txt' using 1:2 with lines title 'MEM'
+	EOF
+
+}
+
+
 if [ $# -eq 0 ]; then
 	echo "Error: ingrese un proceso"
 	exit 1
@@ -40,4 +62,5 @@ while proceso_corriendo; do
 	sleep 1
 done
 
-
+graficar_cpu
+graficar_mem
