@@ -21,6 +21,10 @@ usuario_existe() {
 	getent passwd $usuario > /dev/null
 }
 
+cambiar_pertenencia() {
+	    chown $usuario:$grupo $ruta
+}
+
 if [ $# != 3 ]; then
 	echo "Error: debe ingresar un usuario, grupo y ruta"
 	exit 1
@@ -64,3 +68,8 @@ else
 	echo "Usuario $usuario agregado al grupo $grupo"
 
 fi
+
+echo " "
+echo "Cambiando pertenencia de $ruta al usuario $usuario y al grupo $grupo..."
+cambiar_pertenencia
+echo "Pertenencia de $ruta cambiada al usuario $usuario y al grupo $grupo"
