@@ -25,6 +25,12 @@ cambiar_pertenencia() {
 	    chown $usuario:$grupo $ruta
 }
 
+cambiar_permisos() {
+	chmod u=rwx $ruta
+	chmod g=r $ruta
+	chmod o-rwx $ruta
+}
+
 if [ $# != 3 ]; then
 	echo "Error: debe ingresar un usuario, grupo y ruta"
 	exit 1
@@ -72,4 +78,9 @@ fi
 echo " "
 echo "Cambiando pertenencia de $ruta al usuario $usuario y al grupo $grupo..."
 cambiar_pertenencia
-echo "Pertenencia de $ruta cambiada al usuario $usuario y al grupo $grupo"
+echo "Pertenencia cambiada"
+
+echo " "
+echo "Cambiando permisos de $ruta..."
+cambiar_permisos
+echo "Permisos cambiados"
