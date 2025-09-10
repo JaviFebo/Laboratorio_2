@@ -35,7 +35,9 @@ id_proceso=$!
 > log_mem.txt
 
 while proceso_corriendo; do
-	cpu_proceso >> log_cpu.txt
-	mem_proceso >> log_mem.txt
+	echo "$(date '+%H:%M:%S') $(cpu_proceso)" >> log_cpu.txt
+        echo "$(date '+%H:%M:%S') $(mem_proceso)" >> log_mem.txt
 	sleep 1
 done
+
+
