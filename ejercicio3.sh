@@ -1,6 +1,6 @@
 #!/bin/bash
 
-directorio=$1
+directorio="/home/javier-b/Laboratorios/Archivos"
 archivo_log="log_notify.txt"
 
 monitorear() {

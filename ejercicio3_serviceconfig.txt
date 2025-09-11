@@ -1,0 +1,13 @@
+#Este archivo contiene la configuración del servicio ejercicio3.service
+
+[Unit]
+Description=Servicio de Monitoreo de Cambios en Directorios
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/home/javier-b/Laboratorios/Laboratorio_2/ejercicio3.sh
+WorkingDirectory=/home/javier-b/Laboratorios/Laboratorio_2
+
+[Install]
+WantedBy=multi-user.target
