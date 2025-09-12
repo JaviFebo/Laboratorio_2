@@ -25,25 +25,24 @@ proceso_corriendo() {
 
 #Función que que grafica los datos de consumo de cpu en el archivo de log
 graficar_cpu() {
-	gnuplot -persist <<-EOF
-    		set terminal qt
-    		set xdata time
-    		set timefmt '%H:%M:%S
-    		set format x '%H:%M:%S'
-    		plot 'log_cpu.txt' using 1:2 with lines title 'CPU'
-	EOF
+gnuplot -persist <<EOF
+set terminal qt
+set xdata time
+set timefmt '%H:%M:%S'
+set format x '%H:%M:%S'
+plot 'log_cpu.txt' using 1:2 with lines title 'CPU'
+EOF
 }
 
 #Función que grafica los datos de consumo de memoria en el archivo de log
 graficar_mem() {
-	gnuplot -persist <<-EOF
-    		set terminal qt
-    		set xdata time
-    		set timefmt '%H:%M:%S
-    		set format x '%H:%M:%S'
-    		plot 'log_mem.txt' using 1:2 with lines title 'MEM'
-	EOF
-
+gnuplot -persist << EOF
+set terminal qt
+set xdata time
+set timefmt '%H:%M:%S'
+set format x '%H:%M:%S'
+plot 'log_mem.txt' using 1:2 with lines title 'CPU'
+EOF
 }
 
 #Si no se ingresa ningún parámetro el script termina
